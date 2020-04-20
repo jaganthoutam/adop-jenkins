@@ -1,4 +1,5 @@
-FROM jenkins/jenkins:2.230
+#FROM jenkins/jenkins:2.204.3
+FROM jenkins/jenkins:latest
 
 MAINTAINER Nick Griffin, <nicholas.griffin>
 
@@ -18,6 +19,8 @@ COPY resources/scriptApproval.xml /usr/share/jenkins/ref/
 
 # Reprotect
 USER root
+COPY resources/jenkins.sh /usr/local/bin/jenkins.sh
+RUN chmod +x -R /usr/local/bin/jenkins.sh
 RUN chmod +x -R /usr/share/jenkins/ref/adop_scripts/ && \
     chmod +x /entrypoint.sh
 # USER jenkins

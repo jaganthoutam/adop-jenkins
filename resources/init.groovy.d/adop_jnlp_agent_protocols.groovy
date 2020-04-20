@@ -17,23 +17,22 @@
    
    source: https://github.com/samrocketman/jenkins-bootstrap-shared/blob/master/scripts/configure-jnlp-agent-protocols.groovy
  */
+
 import jenkins.model.Jenkins
 
-Thread.start {
-    sleep 3000
+Jenkins j = Jenkins.instance
 
-    println "--> Configuring JNLP Agent Protocols"
-    
-    Jenkins jenkins = Jenkins.instance
-
-    if(!jenkins.isQuietingDown()) {
-        Set<String> agentProtocolsList = ['JNLP4-connect', 'JNLP2-connect', 'Ping']
-        if(!jenkins.getAgentProtocols().equals(agentProtocolsList)) {
-            jenkins.setAgentProtocols(agentProtocolsList)
-            jenkins.save()
-        }
+if(!j.isQuietingDown()) {
+    Set<String> agentProtocolsList = ['JNLP4-connect', 'Ping']
+    if(!j.getAgentProtocols().equals(agentProtocolsList)) {
+        j.setAgentProtocols(agentProtocolsList)
+        println "Agent Protocols have changed.  Setting: ${agentProtocolsList}"
+        j.save()
     }
     else {
-        println 'Shutdown mode enabled.  Configure Agent Protocols SKIPPED.'
+        println "Nothing changed.  Agent Protocols already configured: ${j.getAgentProtocols()}"
     }
+}
+else {
+    println 'Shutdown mode enabled.  Configure Agent Protocols SKIPPED.'
 }
