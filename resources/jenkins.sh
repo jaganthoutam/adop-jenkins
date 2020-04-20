@@ -39,7 +39,3 @@ fi
 
 # As argument is not jenkins, assume user want to run his own process, for example a `bash` shell to explore this image
 exec "$@"
-<<<<<<< HEAD
-
-=======
->>>>>>> 81bef1cf2458b464be68092393be4a7f18a8f75d
