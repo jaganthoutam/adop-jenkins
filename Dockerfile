@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#FROM jenkins/jenkins:2.204.3
 FROM jenkins/jenkins:latest
-=======
-FROM jenkins/jenkins:2.204.3
->>>>>>> 81bef1cf2458b464be68092393be4a7f18a8f75d
 
 MAINTAINER Nick Griffin, <nicholas.griffin>
 
