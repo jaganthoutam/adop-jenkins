@@ -24,6 +24,11 @@ RUN chmod +x -R /usr/share/jenkins/ref/adop_scripts/ && \
     chmod +x /entrypoint.sh
 # USER jenkins
 
+# Install Docker
+RUN apt-get -qq update && \
+    apt-get -qq -y install curl && \
+    curl -sSL https://get.docker.com/ | sh
+
 # Environment variables
 ENV ADOP_LDAP_ENABLED=true LDAP_IS_MODIFIABLE=true ADOP_ACL_ENABLED=true ADOP_SONAR_ENABLED=true ADOP_ANT_ENABLED=true ADOP_MAVEN_ENABLED=true ADOP_NODEJS_ENABLED=true ADOP_GITLAB_ENABLED=true
 ENV LDAP_GROUP_NAME_ADMIN=""
