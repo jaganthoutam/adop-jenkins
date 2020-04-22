@@ -27,7 +27,23 @@ RUN chmod +x -R /usr/share/jenkins/ref/adop_scripts/ && \
 # Install Docker
 RUN apt-get -qq update && \
     apt-get -qq -y install curl && \
-    curl -sSL https://get.docker.com/ | sh
+    curl -sSL https://get.docker.com/ | sh 
+    
+RUN usermod -aG docker jenkins
+    
+# Install Maven
+RUN apt-get install -y maven
+
+#Install Ansible
+RUN apt-get install -y ansible
+
+# Install kubectl and helm
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
+    chmod +x ./kubectl && \
+    mv ./kubectl /usr/local/bin/kubectl && \
+    curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+    
+    
 
 # Environment variables
 ENV ADOP_LDAP_ENABLED=true LDAP_IS_MODIFIABLE=true ADOP_ACL_ENABLED=true ADOP_SONAR_ENABLED=true ADOP_ANT_ENABLED=true ADOP_MAVEN_ENABLED=true ADOP_NODEJS_ENABLED=true ADOP_GITLAB_ENABLED=true
