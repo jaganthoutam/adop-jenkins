@@ -43,7 +43,21 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     mv ./kubectl /usr/local/bin/kubectl && \
     curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
     
-    
+# Install Java 11
+ENV JAVA_HOME=/opt/openjdk-11
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+ENV JAVA_VERSION=11.0.2
+ENV JAVA_URL=https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+ENV JAVA_SHA256=99be79935354f5c0df1ad293620ea36d13f48ec3ea870c838f20c504c9668b57
+
+RUN set -eux; \
+    \
+    wget -O /openjdk.tgz "${JAVA_URL}"; \
+    echo "${JAVA_SHA256} */openjdk.tgz" | sha256sum -c -; \
+    mkdir -p "${JAVA_HOME}"; \
+    tar --extract --file /openjdk.tgz --directory "${JAVA_HOME}" --strip-components 1; \
+    rm /openjdk.tgz;
 
 # Environment variables
 ENV ADOP_LDAP_ENABLED=true LDAP_IS_MODIFIABLE=true ADOP_ACL_ENABLED=true ADOP_SONAR_ENABLED=true ADOP_ANT_ENABLED=true ADOP_MAVEN_ENABLED=true ADOP_NODEJS_ENABLED=true ADOP_GITLAB_ENABLED=true
