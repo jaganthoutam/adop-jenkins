@@ -1,6 +1,6 @@
 FROM jenkins/jenkins:latest
 
-MAINTAINER Nick Griffin, <nicholas.griffin>
+MAINTAINER Jagadish Thoutam
 
 ENV GITLAB_HOST_NAME gitlab
 ENV GITLAB_PORT 80
@@ -66,7 +66,7 @@ ENV JENKINS_OPTS="--prefix=/jenkins -Djenkins.install.runSetupWizard=false"
 ENV PLUGGABLE_SCM_PROVIDER_PROPERTIES_PATH="/var/jenkins_home/userContent/datastore/pluggable/scm"
 ENV PLUGGABLE_SCM_PROVIDER_PATH="/var/jenkins_home/userContent/job_dsl_additional_classpath/"
 
-RUN xargs /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli --plugins $(/usr/share/jenkins/ref/plugins.txt)
 RUN echo "KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group14-sha256,diffie-hellman-group1-sha1" >> /etc/ssh/ssh_config
 
 ENTRYPOINT ["/entrypoint.sh"]
