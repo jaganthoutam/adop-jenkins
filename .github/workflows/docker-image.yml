@@ -1,18 +1,24 @@
 name: Build ADOP-Jenkins Docker Image CI
-
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag adop-jenkins:$(date +%s)
+      run: docker build . --file Dockerfile --tag jaganthoutam/adop-jenkins:latest
+    - name: Login to DockerHub
+    - uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        
+    - name: Push Docket to DockerHub
+    - uses : docker/build-push-action@v3
+      with:
+        push: true
+        tags: jaganthoutam/adop-jenkins:latest
