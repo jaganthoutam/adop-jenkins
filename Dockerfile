@@ -20,6 +20,7 @@ COPY resources/scriptApproval.xml /usr/share/jenkins/ref/
 USER root
 COPY resources/jenkins.sh /usr/local/bin/jenkins.sh
 RUN chmod +x -R /usr/local/bin/jenkins.sh
+RUN chmod +x -R /usr/share/jenkins/ref/plugins.txt
 RUN chmod +x -R /usr/share/jenkins/ref/adop_scripts/ && \
     chmod +x /entrypoint.sh
 # USER jenkins
