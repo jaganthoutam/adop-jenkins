@@ -17,14 +17,7 @@ jobs:
       - name: Build the Docker image
         run: docker build -t $IMAGE_NAME:latest .
         
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: $IMAGE_NAME:latest
+      - name: Push Docker Image to DockerHUB
+        run: |-
+          docker login -u="${{ secrets.DOCKERHUB_USERNAME }}" -p="${{ secrets.DOCKERHUB_TOKEN }}"
+          docker push $IMAGE_NAME:latest
