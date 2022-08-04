@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-- [`0.2.0`, `0.2.0` (*0.2.0/Dockerfile*)](https://github.com/Accenture/adop-jenkins/blob/0.2.0/Dockerfile)
+- [`0.2.0`, `0.2.0` (*0.2.0/Dockerfile*)](https://github.com/jaganthoutam/adop-jenkins/blob/0.2.0/Dockerfile)
 
 # What is adop-jenkins?
 
@@ -93,7 +93,7 @@ The following command will run adop-jenkins and connect it to OpenLDAP
   -e LDAP_DISABLE_MAIL_ADDRESS_RESOLVER="false" \
   -e LDAP_DISPLAY_NAME_ATTRIBUTE_NAME="displayName" \
   -e LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME="mail" \
-  -d accenture/adop-jenkins:VERSION
+  -d jaganthoutam/adop-jenkins:VERSION
 ```
 
 # License
@@ -110,9 +110,9 @@ Support for older versions (down to 1.6) is provided on a best-effort basis.
 Documentation for this image is available in the [Jenkins documentation page](https://wiki.jenkins-ci.org/display/JENKINS/Home).
 
 ## Issues
-If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/Accenture/adop-jenkins/issues).
+If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/jaganthoutam/adop-jenkins/issues).
 
 ## Contribute
 You are invited to contribute new features, fixes, or updates, large or small; we are always thrilled to receive pull requests, and do our best to process them as fast as we can.
 
-Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/Accenture/adop-jenkins/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
+Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/jaganthoutam/adop-jenkins/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
