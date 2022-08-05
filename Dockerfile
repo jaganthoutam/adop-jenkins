@@ -10,7 +10,6 @@ ENV GITLAB_SSH_PORT 22
 COPY resources/plugins.txt /usr/share/jenkins/ref/
 COPY resources/init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
 COPY resources/scripts/ /usr/share/jenkins/ref/adop_scripts/
-COPY resources/jobs/ /usr/share/jenkins/ref/jobs/
 COPY resources/views/ /usr/share/jenkins/ref/init.groovy.d/
 COPY resources/m2/ /usr/share/jenkins/ref/.m2
 COPY resources/entrypoint.sh /entrypoint.sh
