@@ -11,13 +11,18 @@ jobs:
     env:
       IMAGE_NAME: jaganthoutam/adop-jenkins
     steps:
-      - name: Set up QEMU
-        uses: actions/checkout@v2
-
-      - name: Build the Docker image
-        run: docker build -t $IMAGE_NAME:latest .
-        
       - name: Push Docker Image to DockerHUB
         run: |-
-          docker login -u="${{ secrets.DOCKERHUB_USERNAME }}" -p="${{ secrets.DOCKERHUB_TOKEN }}"
-          docker push $IMAGE_NAME:latest
+         echo "${{ secrets.DOCKERHUB_USERNAME }}"
+         echo "${{ secrets.DOCKERHUB_TOKEN }}"
+         docker login -u="${{ secrets.DOCKERHUB_USERNAME }}" -p="${{ secrets.DOCKERHUB_TOKEN }}"
+          
+      #- name: Set up QEMU
+      #  uses: actions/checkout@v2
+
+      #- name: Build the Docker image
+      #  run: docker build -t $IMAGE_NAME:latest .
+        
+      #- name: Push Docker Image to DockerHUB
+      #  run: |-
+      #    docker push $IMAGE_NAME:latest
