@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-- [`0.2.0`, `0.2.0` (*0.2.0/Dockerfile*)](https://github.com/jaganthoutam/adop-jenkins/blob/0.2.0/Dockerfile)
+- [`0.2.0`, `0.2.0` (*0.2.0/Dockerfile*)](https://github.com/jaganthoutam/adop-jenkins/blob/master/Dockerfile)
 
 # What is adop-jenkins?
 
