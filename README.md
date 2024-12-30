@@ -95,7 +95,6 @@ The following command will run adop-jenkins and connect it to OpenLDAP
   -e LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME="mail" \
   -d jaganthoutam/adop-jenkins:VERSION
 ```
-
 # License
 Please view [license information](LICENSE.md) for the software contained on this image.
 
